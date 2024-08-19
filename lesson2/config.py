@@ -1,0 +1,8 @@
+#вставьте свои данные
+TELEGRAM_API_KEY = "7505320338:AAF" 
+OPENAI_API_KEY = "sk-proj-_MZvdT_4TQoUpueUeNFA"
+
+PROXY_HOST = "45.138.215.56"
+PROXY_PORT = "62081"  # Используем HTTP порт
+PROXY_USERNAME = "FTGwV1"
+PROXY_PASSWORD = "spy3d1"
