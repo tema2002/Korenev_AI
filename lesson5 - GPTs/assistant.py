@@ -1,10 +1,9 @@
 import requests
 import json
 import time
-from config import TELEGRAM_API_KEY, OPENAI_API_KEY, PROXY_HOST, PROXY_PORT, PROXY_USERNAME, PROXY_PASSWORD
+from config import TELEGRAM_API_KEY, OPENAI_API_KEY, PROXY_HOST, PROXY_PORT, PROXY_USERNAME, PROXY_PASSWORD, ASSISTANT_ID
 
 # Настройки
-ASSISTANT_ID = "asst_dST1Es0niOkkPgJauDeWGKWc"
 API_BASE = "https://api.openai.com/v1"
 
 # Настройки прокси

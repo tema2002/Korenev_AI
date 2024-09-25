@@ -2,7 +2,7 @@ import os
 import time
 import json
 from openai import OpenAI
-from config import OPENAI_API_KEY, PROXY_HOST, PROXY_PORT, PROXY_USERNAME, PROXY_PASSWORD
+from config import OPENAI_API_KEY, PROXY_HOST, PROXY_PORT, PROXY_USERNAME, PROXY_PASSWORD, ASSISTANT_ID
 
 # Настройка прокси
 os.environ['http_proxy'] = f'http://{PROXY_USERNAME}:{PROXY_PASSWORD}@{PROXY_HOST}:{PROXY_PORT}'
@@ -11,8 +11,7 @@ os.environ['https_proxy'] = f'http://{PROXY_USERNAME}:{PROXY_PASSWORD}@{PROXY_HO
 # Инициализация клиента OpenAI
 client = OpenAI(api_key=OPENAI_API_KEY)
 
-# ID ассистента
-ASSISTANT_ID = "asst_dST1Es0niOkkPgJauDeWGKWc"
+
 
 def create_thread():
     return client.beta.threads.create()
