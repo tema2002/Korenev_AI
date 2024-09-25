@@ -1,0 +1,7 @@
+TELEGRAM_API_KEY = '661527987mDFtSlFY'
+OPENAI_API_KEY = "sk-proj-_ijkA"
+
+PROXY_HOST = "45.138."
+PROXY_PORT = "620"  # Используем HTTP порт
+PROXY_USERNAME = "FTGw"
+PROXY_PASSWORD = "spy"
