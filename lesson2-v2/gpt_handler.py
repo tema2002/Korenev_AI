@@ -1,4 +1,5 @@
 import requests
+import json
 from config import OPENAI_API_KEY, GPT_MODEL, OPENAI_API_URL, PROXY_HOST, PROXY_PORT, PROXY_USERNAME, PROXY_PASSWORD
 
 def rewrite_for_kids(text):
@@ -6,7 +7,7 @@ def rewrite_for_kids(text):
     Функция для отправки запроса к GPT API и получения переписанного текста для детей 10 лет.
     
     :param text: Исходный текст для переписывания
-    :return: Переписанный текст, понятный детям 10 лет
+    :return: Переписанный текст, понятный детям 10 лет, или сообщение об ошибке
     """
     headers = {
         "Authorization": f"Bearer {OPENAI_API_KEY}",
@@ -30,5 +31,15 @@ def rewrite_for_kids(text):
         response = requests.post(OPENAI_API_URL, json=data, headers=headers, proxies=proxies)
         response.raise_for_status()
         return response.json()['choices'][0]['message']['content']
+    except requests.exceptions.HTTPError as e:
+        error_message = f"Ошибка HTTP при обращении к GPT API: {str(e)}"
+        try:
+            error_details = json.loads(e.response.content.decode('utf-8'))
+            if 'error' in error_details and 'message' in error_details['error']:
+                error_message += f"\n\nСообщение от OpenAI: {error_details['error']['message']}"
+        except json.JSONDecodeError:
+            error_message += f"\n\nНе удалось расшифровать ответ от сервера: {e.response.content}"
+        return error_message
     except requests.exceptions.RequestException as e:
         return f"Произошла ошибка при обращении к GPT API: {str(e)}"
+    
