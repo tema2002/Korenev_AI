@@ -7,7 +7,7 @@ TELEGRAM_API_KEY = "75053ZEbLlXRRI-w"
 OPENAI_API_KEY = "sk-proj-_MZvdT_4TQijkA"
 
 # Модель GPT для использования
-GPT_MODEL = "gpt-4o"
+GPT_MODEL = "gpt-4o-mini"
 
 # URL для API OpenAI
 OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
